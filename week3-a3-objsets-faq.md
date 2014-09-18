@@ -16,7 +16,7 @@ Do so at your own risk. The tools provided so far are entirely sufficient to sol
 
 **I'd like to use `foreach` in my solution. May I?**
 
-Not really. `foreach` doesn't evaluate to anything useful, so the only way to use it would be resorting to side effects, which is something we're trying to keep away from in this class.
+Not really. `foreach` doesn't evaluate to anything useful, so the only way to use it would be resorting to side effects, which is something we're trying to keep away from in this class. Therefore, any solution using `foreach` is likely to be penalized by the grader.
 
 **I don't get `filterAcc`. What's it for?**
 
@@ -46,13 +46,15 @@ We will learn yet another way to tackle this problem in later weeks.
 
 **Catching a thrown exception seems to be a sound way to deal with the problem of handling empty sets.**
 
-You shouldn't do that. Exception handling seems to come with substantial overhead on JVM, and in previous runs of the class some students ran into grader timeouts due to taking this approach. Avoid exception handling when implementing recursive functions.
+You shouldn't do that. Exception handling seems to come with substantial overhead on JVM, and in previous runs of the class some students ran into grader timeouts due to taking this approach. Avoid rampant exception handling when implementing recursive functions, at least where assignments in this class are concerned.
 
 **Just how fast should union be? Can I use the implementation given in the lectures?**
 
-Pretty fast. At the very least you should be able to `run` the program and see the results in a second or so (this may vary depending upon hardware and JVM settings, with some students reporting execution time for `run` of up to ten seconds when running perfectly fine solutions in resource-constrained environments). The implementation in the lectures does not fit this criterion.
+Pretty fast. At the very least you should be able to `run` the program and see the results in a second or so (this may vary depending upon your hardware and JVM settings, with some students reporting execution time for `run` of up to ten seconds when running perfectly fine solutions in resource-constrained environments). The implementation in the lectures does not fit this criterion.
 
-Note that there are several simple implementations that achieve linearithmic asymptotic time complexity on average, which should be sufficient for your solution to be accepted. If you want an extra challenge, try finding and implementing a linear solution. (This is Exercise 3.9 in Okasaki's famous *Purely Functional Data Structures* -- special thanks go to Moshe Ivry for explaining the idea to me during the second run of this class.) It's a good deal more involved than simpler approaches, but it's a beautiful algorithm, and it balances the resulting tree as an added bonus. Hint: this is somewhat similar to mergesort. The tricky part is reconstructing the tree from a linear representation of the resulting set in linear time. This may require some degree of recursive ingenuity.
+Note that there are several simple implementations that achieve linearithmic asymptotic time complexity on average, which should be sufficient for your solution to be accepted. If you want an extra challenge, try finding and implementing a linear solution. (This is Exercise 3.9 in Okasaki's famous *Purely Functional Data Structures* -- special thanks go to Moshe Ivry for explaining the idea to me during the second run of this class.) It's a good deal more involved than simpler approaches, but it's a beautiful algorithm, and it balances the resulting tree as an added bonus.
+
+Hint: this is somewhat similar to mergesort. The tricky part is reconstructing the tree from a linear representation of the resulting set in linear time. This may require some degree of recursive ingenuity.
 
 **So how do I implement `union` efficiently?**
 
@@ -74,9 +76,9 @@ None that I'm aware of. Just treat is as an arbitrary (but reasonably sensible) 
 
 Think about `filter` and `filterAcc`.
 
-**I can't write my head around `descendingByRetweet`. Is there a systematic way to attack problems like this?**
+**I can't wrap my head around `descendingByRetweet`. Is there a systematic way to attack problems like this one?**
 
-Yes. To define a function over a recursive data structure, you need to think of the base case and of the recursive case, generally speaking. (There are always nuances in the real world.)
+Yes. To define a function over a recursive data structure, you need to think of the base case and the recursive case, generally speaking. (There are always nuances in the real world.)
 
 `descendingByRetweet` for a given set of tweets is a list. It should be empty for an empty set. If the set is non-empty, the list should be non-empty as well. A non-empty list consists of two parts - its head (which should be a tweet) and its tail (which should be a list of tweets). Clearly, the head of this list should be a tweet with the most retweets in the given set. Can you define - in English - what the tail of this list should be? Translate that definition to Scala.
 

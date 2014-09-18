@@ -4,7 +4,7 @@ Yes. The assignment covers all of the material up to and including week 6.
 
 **Should I avoid recursion, explicit or implicit, in my solutions for this assignment?**
 
-The answer is definitely no for implicit, and not necessarily for explicit. Many of the functions we have to implement can be made more elegant through the use of `for`-expressions and/or HOFs. But if you feel a straightforward explicitly recursive solution makes more sense, go ahead and give it a shot.
+The answer is definitely no for implicit, and not necessarily for explicit. Many of the functions we have to implement can be made more elegant through the use of `for`-expressions and/or high-order functions on lists. But if you feel a straightforward explicitly recursive solution makes more sense, go ahead and give it a shot.
 
 **"Implicit recursion?" What does that mean?**
 
@@ -18,7 +18,7 @@ No. The same policy holds as with the rest of the course. Grader will dock point
 
 First of all, the sequence type of the first generator expression determines the sequence type for the entire `for`-expression - it's easy to run afoul of this.
 
-Secondly, if you're still stuck, consider desugaring your `for`-expression following Prof. Odersky's explanations in the lectures, and rewriting it as a series of `val`s (perhaps even giving those explicit types to help you figure out where does the problem lie). This should help you figure out in which part of your expression the type mismatch actually is. (This may take a while, but it's very useful to go through this process at least once.) When you're working with nested lists, the most likely cause is that you've missed one level of nesting somewhere, or vice versa, introduced an unnecessary level of nesting. If you're using multiple containers you may need to use `toList` or such to make your types agree.
+Secondly, if you're still stuck, consider desugaring your `for`-expression following Prof. Odersky's explanations in the lectures, and rewriting it as a series of `val`s (perhaps even giving those explicit types to help you figure out where does the problem lie). This should help you figure out in which part of your expression the type mismatch actually is. This may take a while, but it's very useful to go through this process at least once. When you're working with nested lists, the most likely cause is that you've missed one level of nesting somewhere, or vice versa, introduced an unnecessary level of nesting. If you're using multiple containers you may need to use `toList` or such to make your types agree.
 
 Lastly, one relatively common problem is figuring out how does the parser treat the expression after the `yield`. Something like `for { ... } yield x :: xs` means `(for { ... } yield x) :: xs`, while you probably wanted to say `for { ... } yield (x :: xs)`.
 
@@ -46,7 +46,7 @@ One way (not necessarily the best one) to approach this problem would be to thin
 
 The usage of the word "set" is a bit informal here. We're actually interested in multisets, which may include the same element more than once.
 
-**May my implementation of `subtract` assume that it's not going to be provided an y that is not a subset of x?**
+**May my implementation of `subtract` assume that it's not going to be provided an `y` that is not a subset of `x`?**
 
 Yes.
 
@@ -70,7 +70,7 @@ Yeah. Do not assume a common word will be in it. When in doubt, check it.
 
 You should not submit this part of your code, especially if you do this with mutable containers. Note that while doing this with mutable containers is the most straightforward way to do this, it's not strictly necessary, as Scala already has the fundamental "caching" mechanism implemented in form of `lazy val`s. Given those, we can do the rest without mutable data structures. Also note that in pure world lazy evaluation strategy is equivalent to call-by-name to the factor of computational complexity - that is, it's an optimization that preserves expression semantics.
 
-**I don't get it. How an you cache anything without mutable values?**
+**I don't get it. How can you cache anything without mutable values?**
 
     object Main extends App {
       class MemoStringFunction[T](f: String => T, x: String) {
@@ -90,3 +90,5 @@ You should not submit this part of your code, especially if you do this with mut
       println(f("a"))
       println(f("abcdef"))
     }
+
+Note that this is not really idiomatic in Scala.

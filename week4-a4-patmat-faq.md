@@ -4,7 +4,7 @@ You could give it a shot, but you would be at grader's mercy. None of the `List`
 
 **Does that include `map`, `flatMap`, (insert the name of the method you wanted to use), `head`, `tail`?**
 
-Yes, actually. This assignment is all about pattern matching. List constructors and pattern matching on lists are entirely sufficient here, though there's probably no harm in occisionally using `head` or somesuch if it looks like it's a better approach.
+Yes. This assignment is all about pattern matching. List constructors and pattern matching on lists are entirely sufficient here, though there's probably no harm in occisionally using `head` or somesuch if it looks like it's a better approach.
 
 **Should I make my solutions tail-recursive?**
 
@@ -38,7 +38,7 @@ No. Assignment instructions are unambiguous here.
 
 **`until` looks like an imperative loop. How do I implement something like that in a functional fashion?**
 
-Iteration is equivalent to tail-recursion. You might want to take a look at FAQ for recfun.
+Iteration is equivalent to tail-recursion. You might want to take a look at the FAQ for recfun.
 
 **Do I really need to use `mergeCodeTables` in my implementation of `convert`?**
 

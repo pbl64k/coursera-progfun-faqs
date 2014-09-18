@@ -16,7 +16,7 @@ No. This means 00:59. Adjust your schedule accordingly. (It's probably a good id
 
 **Can I submit my assignment solutions as many times as I want?**
 
-No. We're only given five submission attempts to solve each weekly programming assignment. You may continue to submit solutions once you've run out of attempts, and you will receive grader feedback for those, but these submissions won't count towards your final grade.
+No. We're only given five submission attempts to solve each weekly programming assignment. You may continue to submit your solutions once you've run out of attempts, and you will receive grader feedback for those, but these submissions won't count towards your final grade.
 
 **Can I use `var`s? Stateful loops?**
 

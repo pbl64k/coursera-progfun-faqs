@@ -1,7 +1,11 @@
 Community FAQs for Functional Programming Principles in Scala class on Coursera
 =====================
 
-These FAQs were originally created during the Spring '13 run of FPP in Scala based on forum discussions, and subsequently updated during the Fall '13 and Spring '14 sessions.
+See the class page for syllabus and enrollment details:
+
+https://www.coursera.org/course/progfun
+
+These FAQs were originally created during the Spring '13 run of FPP in Scala based on forum discussions, and subsequently updated during the Fall '13 and Spring '14 sessions. Note that the information may be out-of-date, as I stopped following the class after the Spring '14 session. Please submit pull requests if you find any errors or typos in the materials.
 
 The FAQs are in Markdown variant with MathJax support used on Coursera forums.
 

@@ -4,7 +4,7 @@ You could try using a few levels from the original flash game and see whether yo
 
 **Which one is `x`, and which one is `y` as far as `Pos` is concerned?**
 
-If you're accessing a vector of vectors representing the terrain, you should index by `x` first, and by `y` second.
+When you're accessing a vector of vectors representing the terrain you should index by `x` first, and by `y` second.
 
 **What do the two positions supplied to `Block` constructor represent?**
 
@@ -16,7 +16,7 @@ No. You should explicitly check for coordinates being within bounds. Both ways.
 
 **What does `terrainFunction` really mean?**
 
-Whether any part of the playing piece can be located at these coordinates without player losing the game.
+Whether any part of the playing piece can be located at these coordinates without losing the game.
 
 **Is `neighborsWithHistory` supposed to produce an infinite stream of positions?**
 
@@ -24,7 +24,7 @@ No, don't overthink it. You only need to generate the immediate neighbors. The r
 
 **How is my `from` supposed to handle infinite terrain?**
 
-Naturally. The tail of a stream will not be evaluated unless needed. Since `solution` only takes the first path to goal, the entire infinite solution space will not be explored (as long as there's *some* solution in it).
+Naturally. The tail of a stream will not be evaluated unless needed. Since `solution` only takes the first path to the goal, the entire infinite solution space will not be explored (as long as there's *some* solution in it).
 
 There's an important caveat here: the behavior of `++` is unintuitive, as it will, in fact, force partial evaluation of its second operand. Just use `#:::` instead, which is the equivalent of `++`, but behaves sensibly for lazy streams, never touching its second operand.
 
@@ -36,7 +36,7 @@ See the answer to the previous question.
 
 **Can't we just determine `explored` from `initial` in `from`?**
 
-`initial` may represent a partially explored space, so, no, we can't.
+No, we can't, as `initial` may represent a partially explored space.
 
 **I'm having a hard time debugging and/or dealing with type errors in `from`.**
 
@@ -46,7 +46,7 @@ Try decomposing your logic through the use of `val`s, perhaps giving your expess
 
 Meditate over `from`. How do you ensure that you explore the search space in layers, such that all states achievable in, for example, two moves are explored before the states that take three or more moves to achieve?
 
-**My solution blows up when graded - what should solution return when no solution is possible?**
+**My solution blows up when graded -- what should solution return when no solution is possible?**
 
 An empty `List`, as the comments suggest.
 

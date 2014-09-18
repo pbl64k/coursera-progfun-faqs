@@ -20,7 +20,7 @@ Given two sequences $$A$$ and $$B$$, and the result of their concatenation $$C =
 
 $$f(C) = f(A) + f(B)$$
 
-Let's assume that $$B$$ is actually an empty list. In that case $$C = A$$, and we can conclude that:
+Let's assume that $$B$$ is actually an empty list. In that case $$C = A$$ (by properties of list concatenation), and we can conclude that:
 
 $$f(A) = f(A) + f(B)$$
 
@@ -42,11 +42,13 @@ Known as "vacuous truth", this often appears to be very counter-intuitive, despi
 
 The proposition "there does not exist an item belonging to a set $$X$$, such that proposition $$P$$ does not hold true for it" is true for any choice of $$P$$ if $$X$$ is an empty set.
 
-...is considered to be very intuitive (obviously, there doesn't exist _anything_ in an empty set that would satisfy _any_ requirement).
+...is considered to be very intuitive (obviously, there doesn't exist _anything_ in an empty set that would satisfy _any_ requirement). This duality is known as "extended (or generalized) de Morgan's laws":
+
+http://en.wikipedia.org/wiki/De_Morgan%27s_laws#Extensions
 
 If you think about it a little, the fact that there aren't any bug-eyed Martians who are avid fans of Star Wars also means that all bug-eyed Martians are not avid fans of Star Wars (even though, to the best of our knowledge, there aren't any bug-eyed Martians at all). Of course, the converse is also true: all bug-eyed Martians are avid fans of Star Wars - after all, there aren't any bug-eyed Martians who aren't avid fans of Star Wars.
 
-Surprisingly, this can be seen in real life. If you go looking for hotels on, say, Expedia, the results page will display a list of checkboxes titled "Hotel Preferences". This can be interpreted as specifying a list of requirements, and the hotels displayed will be such that _for all requirements in the requirement list, the hotel satisfies the requirement_. If you select "Swimming Pool" and "Childcare", only the hotels with both swimming pool and childcare service will be displayed in the search results. However, if you don't click on any checkboxes, the search results won't be empty. That's because all hotels satisfy an empty list of requirements.
+Surprisingly, this can be seen in real life. If you go looking for hotels on some hotel booking site the results page will usually display a list of checkboxes titled "Hotel Preferences" (or something similar). This can be interpreted as specifying a list of requirements, and the hotels displayed will be such that _for all requirements in the requirement list, the hotel satisfies the requirement_. If you select "Swimming Pool" and "Childcare", only the hotels with both swimming pool and childcare service will be displayed in the search results. However, if you don't click on any checkboxes, the search results won't be empty. That's because all hotels satisfy an empty list of requirements.
 
 Formally, $$\forall x \in X, P(x)$$ means $$P(x_1) \wedge P(x_2) \wedge ... \wedge P(x_n)$$, and truth is the identity of conjunction.
 

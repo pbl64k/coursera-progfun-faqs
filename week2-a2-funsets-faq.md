@@ -1,8 +1,8 @@
-**I don't get what's going on with sets here. Isn't set just a data structure containing all of its elements?**
+**I don't get what's going on with sets here. Isn't a set just a data structure containing all of its elements?**
 
 There are different possible representations of sets. In this assignment, we represent sets by their indicator functions. An indicator function can only tell us one thing - whether something belongs to a given set or not. This is the reason why assignment defines `Set` as a type alias for functions from `Int` to `Boolean`.
 
-This is an implicit representation, as opposed to explicit representation in form of a data structure containing all of the set's elements, and it comes with advantages and disadvantages. One disadvantage is that we cannot enumerate all elements of a given set, one advantage is that we can efficiently perform certain operations even with infinite sets.
+This is an implicit representation, as opposed to explicit representation in form of a data structure containing all of the set's elements, and it comes with certain advantages and disadvantages. One disadvantage is that we cannot enumerate all the elements of a given set, one advantage is that we can efficiently perform certain operations even with infinite sets.
 
 Definition of what an indicator function is can be found in Wikipedia:
 
@@ -18,7 +18,7 @@ http://en.wikipedia.org/wiki/Indicator_function
 
     def twoAndFive: Set = x => x == 2 || x == 5
 
-This creates a set that contains the integers two and five. Unfortunately, built-in `Set()`s define `apply`, so they can also look like functions, but for the purposes of this assignment you should use the representation described in the problem statement.
+This creates a set that contains the integers two and five. Unfortunately, built-in `Set()`s define `apply`, so they can also "look" like functions, but for the purposes of this assignment you should use the representation described in the problem statement.
 
 **I'm done with `singletonSet()`, but how can there be a set with multiple elements given our definitions here?!**
 
@@ -30,11 +30,11 @@ It would be a function that returns `true` in more than one case. See the exampl
 
 **How do I detect an empty set?**
 
-You can't - as mentioned before, we cannot inspect the functions representing sets in this assignment. Good news is, we don't need that capability for any of the assignment problems. `exists` - to be implemented later in the assignment - kinda allows you to check whether the set is empty... within given bounds. So that's not a real test for an empty set.
+You can't - as mentioned before, we cannot inspect the functions representing sets in this assignment. Good news is, we don't need that capability for any of the assignment problems. `exists` - to be implemented later in the assignment - kinda allows you to check whether the set is empty... within given bounds. Obviously, that's not a real test for an empty set.
 
 **What are these *union*, *intersect* and *set difference* things?**
 
-This is from basic set theory. Don't worry, this is no rocket science, you can learn all the set theory you need for this assignment in quarter an hour. See, for example:
+This is from basic set theory. Don't worry, this is no rocket science, you can learn all the set theory you need for this assignment in half an hour. See, for example:
 
 http://en.wikipedia.org/wiki/Basic_set_operations#Basic_operations
 
@@ -44,7 +44,7 @@ Not that we're using *set-theoretic difference* as difference in this assignment
 
 **Can I assume the same bounds as described in `forall` and `exists` tasks apply to `union` etc.?**
 
-No. They do apply for `map` (in a way), but the rest of your solutions should be general. Norman Graham, one of the CTAs for Spring '13 class, put it this way:
+No. They do apply for `map` (in a way), but the rest of your solutions should be general. Norman Graham, one of the CTAs for the Spring '13 session of this class, put it this way:
 
 "Bounds are not needed for the implementation of `union()`. If you're thinking in terms of iterating over a range of integers, then you're probably falling back into imperative thought patterns. Pay attention to the type signatures and think about how you can define `union()` directly as a Set in terms of `s` and `t`."
 
