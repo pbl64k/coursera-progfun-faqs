@@ -72,7 +72,7 @@ You should not submit this part of your code, especially if you do this with mut
 
 **I don't get it. How can you cache anything without mutable values?**
 
-    object Main extends App {
+    object Main {
       class MemoStringFunction[T](f: String => T, x: String) {
         private lazy val v = f(x)
         private lazy val ts = (for {
@@ -84,11 +84,25 @@ You should not submit this part of your code, especially if you do this with mut
         }
         def apply(x: String): T = get(x) 
       }
-      val f = new MemoStringFunction(s => { println("bork."); s.length }, "")
-      println(f("a"))
-      println(f("abcdef"))
-      println(f("a"))
-      println(f("abcdef"))
+    
+      def g(s: String): Int = {
+        println("computing length for: " ++ s)
+        if (s.isEmpty)
+            0
+        else
+            (1 + f(s.tail))
+      }
+    
+      val f = new MemoStringFunction(g, "")
+    
+      def main(args: Array[String]) = {
+        println(f("a"))
+        println(f("f"))
+        println(f("abcdef"))
+        println(f("a"))
+        println(f("f"))
+        println(f("abcdef"))
+      }
     }
 
-Note that this is not really idiomatic in Scala.
+Note that this is not really idiomatic in Scala, as memoization using mutable data structures is much more convenient. It's also worth noting that the function to be memoized must be aware of that in case it's recursive (as seen above). An alternative would be implementing the memoization through a memoizing fixed-point combinator, but that still doesn't allow us to magically memoize arbitrary recursive functions.

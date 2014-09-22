@@ -76,8 +76,8 @@ Even when tail-recursive implementations have the same asymptotic complexity, th
 
 The answer uses language features and concepts not introduced in the lectures yet, so you may not be able to understand it completely right now (but you will be after finishing the class):
 
-    object Main extends App {
-      class Tree
+    object Main {
+      sealed abstract class Tree
       case class Leaf(n: Int) extends Tree
       case class Node(l: Tree, n: Int, r: Tree) extends Tree
       def sum(t: Tree) = {
@@ -90,7 +90,10 @@ The answer uses language features and concepts not introduced in the lectures ye
         }
         sum0(0, List(t))
       }
-      println(sum(Node(Leaf(1), 2, Node(Leaf(3), 4, Leaf(5)))))
+    
+      def main(args: Array[String]) = {
+        println(sum(Node(Leaf(1), 2, Node(Leaf(3), 4, Leaf(5)))))
+      }
     }
 
 In general, when you want to convert something non-trivial to a tail-recursive form, you reify the work to be done (in this case, in form of a list of sub-trees still to be processed -- `ts`).
