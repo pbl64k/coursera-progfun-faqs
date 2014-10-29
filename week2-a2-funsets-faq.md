@@ -40,7 +40,7 @@ http://en.wikipedia.org/wiki/Basic_set_operations#Basic_operations
 
 http://en.wikipedia.org/wiki/Algebra_of_sets
 
-Not that we're using *set-theoretic difference* as difference in this assignment, rather than *symmetric set difference*.
+Note that we're using *set-theoretic difference* as difference in this assignment, rather than *symmetric set difference*.
 
 **Can I assume the same bounds as described in `forall` and `exists` tasks apply to `union` etc.?**
 
